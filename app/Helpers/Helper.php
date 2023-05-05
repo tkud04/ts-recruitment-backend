@@ -457,8 +457,8 @@ $subject = $data['subject'];
                    	     $temp['zip_code'] = $r->zip_code;                          
                    	     $temp['message'] = $r->message;                          
                    	     $temp['pic'] = $r->pic;                             
-                         $temp['date'] = $r->created_at->format("jS F, Y"); 
-                         $temp['last_updated'] = $r->updated_at->format("jS F, Y");
+                         $temp['date'] = $r->created_at->format("jS F, Y h:i A"); 
+                         $temp['last_updated'] = $r->updated_at->format("jS F, Y h:i A");
                        $ret = $temp; 
                }                          
                                                       
