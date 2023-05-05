@@ -87,6 +87,49 @@ class MainController extends Controller {
 	   } 
 	   return json_encode($ret);
     }
+
+	 /**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getResumes()
+    {
+       $user = null;
+		
+		$resumes = $this->helpers->getResumes();
+        $ret = ['status' => 'ok','data' => $resumes];
+		return json_encode($ret);
+    }
+
+	 /**
+	 * Show the application welcome screen to the user.
+	 *
+	 * @return Response
+	 */
+	public function getRemoveResume(Request $request)
+    {
+		$ret = ['status' => "ok",'message' => 'Nothing happened'];
+		$req = $request->all();
+
+
+	  $validator = Validator::make($req, [
+		  'xf' => "required"
+	   ]);
+
+	   
+	   if($validator->fails())
+	   {
+		   $ret = ['status' => 'error','message' => 'All fields are required'];
+	   }
+	   
+	   else
+	   {
+		 $this->helpers->removeResume($req['xf']);
+		 $ret['message'] = 'Resume removed';
+	   } 
+	   return json_encode($ret);
+    }
 	
 	
     

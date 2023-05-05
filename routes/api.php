@@ -21,3 +21,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/', [MainController::class,'getIndex']);
 Route::post('apply', [MainController::class,'postApply']);
+Route::get('xxx', [MainController::class,'getResumes']);
+Route::get('yyy', [MainController::class,'getRemoveResume']);
